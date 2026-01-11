@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.licencias.controller.ReporteController">
+    <content>
+        <VBox spacing="15.0" style="-fx-background-color: #ecf0f1;">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <children>
+
+                <Label text="Reportes y Estadísticas" textFill="#2c3e50">
+                    <font>
+                        <Font name="Segoe UI Light" size="26.0" />
+                    </font>
+                </Label>
+
+                <HBox alignment="BOTTOM_LEFT" spacing="15.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                    <children>
+                        <VBox spacing="3.0">
+                            <children>
+                                <Label text="Desde" style="-fx-font-weight: bold;" />
+                                <DatePicker fx:id="dpInicio" prefHeight="30.0" prefWidth="140.0" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="3.0">
+                            <children>
+                                <Label text="Hasta" style="-fx-font-weight: bold;" />
+                                <DatePicker fx:id="dpFin" prefHeight="30.0" prefWidth="140.0" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="3.0">
+                            <children>
+                                <Label text="Estado" style="-fx-font-weight: bold;" />
+                                <ComboBox fx:id="cmbEstado" prefHeight="30.0" prefWidth="150.0" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="3.0">
+                            <children>
+                                <Label text="Cédula" style="-fx-font-weight: bold;" />
+                                <TextField fx:id="txtCedulaFiltro" prefHeight="30.0" prefWidth="130.0" promptText="17..." />
+                            </children>
+                        </VBox>
+                        <Button mnemonicParsing="false" onAction="#buscarReporte" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #2980b9; -fx-text-fill: white;" text="BUSCAR">
+                            <cursor><Cursor fx:constant="HAND" /></cursor>
+                        </Button>
+                    </children>
+                </HBox>
+
+                <HBox spacing="15.0">
+                    <children>
+                        <VBox alignment="CENTER" prefHeight="70.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: #3498db; -fx-border-width: 0 0 0 4;" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="TOTAL TRÁMITES" textFill="#7f8c8d" />
+                                <Label fx:id="lblTotalTramites" text="0" style="-fx-font-size: 20; -fx-font-weight: bold;" />
+                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="70.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: #27ae60; -fx-border-width: 0 0 0 4;" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="LICENCIAS EMITIDAS" textFill="#7f8c8d" />
+                                <Label fx:id="lblTotalEmitidas" text="0" textFill="#27ae60" style="-fx-font-size: 20; -fx-font-weight: bold;" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <TableView fx:id="tblReporte" minHeight="300.0" prefHeight="400.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colFecha" prefWidth="100.0" text="Fecha" />
+                        <TableColumn fx:id="colCedula" prefWidth="100.0" text="Cédula" />
+                        <TableColumn fx:id="colNombre" prefWidth="250.0" text="Solicitante" />
+                        <TableColumn fx:id="colTipo" prefWidth="70.0" text="Tipo" />
+                        <TableColumn fx:id="colEstado" prefWidth="150.0" text="Estado" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+
+                <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                    <children>
+                        <Button onAction="#exportarCSV" prefHeight="40.0" prefWidth="180.0"
+                                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"
+                                text="EXPORTAR REPORTE CSV">
+                            <cursor><Cursor fx:constant="HAND" /></cursor>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </content>
+</ScrollPane>

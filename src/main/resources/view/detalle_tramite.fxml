@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="15.0" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #f4f6f7;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.licencias.controller.DetalleTramiteController">
+    <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
+
+    <Label text="Bandeja de Gestión de Trámites" textFill="#2c3e50">
+        <font><Font name="Segoe UI Bold" size="24.0"/></font>
+    </Label>
+
+    <HBox spacing="15.0" VBox.vgrow="ALWAYS">
+        <VBox spacing="10.0" prefWidth="350.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-border-color: #dcdde1;">
+            <Label text="Lista de Trámites" style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+            <TextField fx:id="txtFiltroRapido" promptText="🔍 Filtrar por nombre o cédula..."/>
+            <TableView fx:id="tblTramites" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colCedula" text="Cédula" prefWidth="100.0"/>
+                    <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150.0"/>
+                    <TableColumn fx:id="colEstado" text="Estado" prefWidth="80.0"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <ScrollPane fitToWidth="true" HBox.hgrow="ALWAYS" style="-fx-background-color: transparent; -fx-background: #f4f6f7;">
+            <VBox spacing="15.0">
+                <VBox spacing="10.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 8; -fx-border-color: #dcdde1;">
+                    <HBox alignment="CENTER_LEFT" spacing="20.0">
+                        <VBox HBox.hgrow="ALWAYS">
+                            <Label fx:id="lblNombre" text="Seleccione un registro" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+                            <Label fx:id="lblCedula" text="Cédula: -" textFill="#7f8c8d"/>
+                            <Label fx:id="lblEmail" text="Correo: -" textFill="#7f8c8d"/>
+                        </VBox>
+                        <VBox alignment="CENTER_RIGHT" spacing="5.0">
+                            <Label fx:id="lblTipoLicencia" text="TIPO: -" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #2980b9;"/>
+                            <Label fx:id="lblEstado" text="ESTADO" style="-fx-padding: 5 10; -fx-background-radius: 5; -fx-font-weight: bold;"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <Accordion fx:id="accordionDetalles">
+                    <panes>
+                        <TitledPane text="1. Verificación de Requisitos" animated="true">
+                            <VBox spacing="10.0">
+                                <GridPane hgap="20" vgap="10">
+                                    <Label text="Examen Médico:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+                                    <Label fx:id="lblReqMedico" text="-" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                                    <Label text="Pago de Tasa:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+                                    <Label fx:id="lblReqPago" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                    <Label text="Validación de Multas:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;"/>
+                                    <Label fx:id="lblReqMultas" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                </GridPane>
+                                <Separator/>
+                                <Label fx:id="lblObsRequisitos" text="Obs: -" style="-fx-font-style: italic;"/>
+                            </VBox>
+                        </TitledPane>
+
+                        <TitledPane text="2. Notas de Evaluación" animated="true">
+                            <HBox spacing="50.0" alignment="CENTER" style="-fx-padding: 10;">
+                                <VBox alignment="CENTER">
+                                    <Label text="TEÓRICO" textFill="#7f8c8d" style="-fx-font-weight: bold;"/>
+                                    <Label fx:id="lblNotaTeorica" text="0.00" style="-fx-font-size: 26; -fx-font-weight: bold;"/>
+                                </VBox>
+                                <VBox alignment="CENTER">
+                                    <Label text="PRÁCTICO" textFill="#7f8c8d" style="-fx-font-weight: bold;"/>
+                                    <Label fx:id="lblNotaPractica" text="0.00" style="-fx-font-size: 26; -fx-font-weight: bold;"/>
+                                </VBox>
+                            </HBox>
+                        </TitledPane>
+
+                        <TitledPane text="3. Documento de Licencia" animated="true">
+                            <VBox spacing="10.0" alignment="CENTER" style="-fx-padding: 20;">
+                                <Label fx:id="lblNumLicencia" text="Estado: Selección pendiente"
+                                       style="-fx-font-weight: bold; -fx-font-size: 16; -fx-text-fill: #34495e;"/>
+                                <Label fx:id="lblFechasLicencia" text="Cargue un trámite para ver detalles" textFill="#7f8c8d"/>
+                            </VBox>
+                        </TitledPane>
+                    </panes>
+                </Accordion>
+
+                <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                    <Button text="CERRAR VENTANA" onAction="#cerrarVentana" prefHeight="40.0" prefWidth="180.0"
+                            style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;"/>
+
+                    <Button fx:id="btnGenerarLicencia"
+                            text="EMITIR E IMPRIMIR LICENCIA"
+                            disable="true"
+                            onAction="#abrirGeneradorLicencia"
+                            prefHeight="40.0"
+                            style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 0 25; -fx-cursor: hand;"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </HBox>
+</VBox>

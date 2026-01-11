@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.geometry.Insets?>
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="500.0" prefWidth="800.0"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.licencias.controller.LoginController">
+
+    <children>
+
+        <VBox alignment="CENTER" prefHeight="500.0" prefWidth="300.0" spacing="10.0" style="-fx-background-color: #2c3e50;">
+            <children>
+                <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@/images/login.png" />
+                    </image>
+                </ImageView>
+                <Label text="Trámites Vehiculares" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label text="Licencias" textFill="#bdc3c7">
+                    <font>
+                        <Font name="Segoe UI" size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+
+        <StackPane style="-fx-background-color: #fdfdfd;" HBox.hgrow="ALWAYS">
+            <children>
+
+                <VBox alignment="CENTER_LEFT" maxWidth="350.0" spacing="15.0" style="-fx-background-color: transparent;">
+                    <children>
+
+                        <Label text="Bienvenido" textFill="#2c3e50">
+                            <font>
+                                <Font name="Segoe UI Light" size="32.0" />
+                            </font>
+                        </Label>
+                        <Label text="Ingrese sus credenciales para continuar" textFill="#7f8c8d">
+                            <font>
+                                <Font name="Segoe UI" size="14.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="10.0" top="-10.0" />
+                            </VBox.margin>
+                        </Label>
+
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="USUARIO" textFill="#95a5a6">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="txtUsuario" prefHeight="40.0" promptText="Ej. analista1" style="-fx-background-radius: 4; -fx-border-color: #ecf0f1; -fx-background-color: white; -fx-border-radius: 4;">
+                                    <font>
+                                        <Font name="Segoe UI" size="14.0" />
+                                    </font>
+                                </TextField>
+                            </children>
+                        </VBox>
+
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="CONTRASEÑA" textFill="#95a5a6">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <PasswordField fx:id="txtPassword" prefHeight="40.0" promptText="••••••••" style="-fx-background-radius: 4; -fx-border-color: #ecf0f1; -fx-background-color: white; -fx-border-radius: 4;">
+                                    <font>
+                                        <Font name="Segoe UI" size="14.0" />
+                                    </font>
+                                </PasswordField>
+                            </children>
+                        </VBox>
+
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="PERFIL DE ACCESO" textFill="#95a5a6">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="cmbRol" prefHeight="40.0" prefWidth="1000.0" promptText="Seleccione su rol" style="-fx-background-color: white; -fx-border-color: #ecf0f1; -fx-border-radius: 4; -fx-background-radius: 4;" />
+                            </children>
+                        </VBox>
+
+                        <Region prefHeight="10.0" />
+
+                        <Button fx:id="btnLogin" defaultButton="true" mnemonicParsing="false" onAction="#handleLoginAction" prefHeight="45.0" prefWidth="1000.0" style="-fx-background-color: #2980b9; -fx-cursor: hand; -fx-background-radius: 4;" text="INICIAR SESIÓN" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+
+    </children>
+</HBox>

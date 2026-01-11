@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.Cursor?>
+
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="650.0" spacing="20.0" style="-fx-background-color: #ecf0f1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.licencias.controller.LicenciaController">
+
+    <padding>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+    </padding>
+
+    <Label text="Emisión de Documento" textFill="#2c3e50">
+        <font><Font name="Segoe UI Light" size="28.0" /></font>
+    </Label>
+
+    <HBox alignment="CENTER" spacing="15.0" style="-fx-background-color: #ffffff; -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+        <children>
+            <Label text="Cédula del Solicitante:" style="-fx-font-weight: bold;" />
+            <TextField fx:id="txtCedulaBusqueda" prefWidth="200.0" promptText="Ej: 1723456789" />
+            <Button onAction="#buscarAprobado" style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-weight: bold;" text="CARGAR DATOS">
+                <cursor><Cursor fx:constant="HAND" /></cursor>
+            </Button>
+        </children>
+    </HBox>
+
+    <Separator prefWidth="200.0" />
+
+    <StackPane VBox.vgrow="ALWAYS">
+        <children>
+            <HBox fx:id="paneCarnet" visible="false" maxWidth="500.0" prefHeight="280.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 15, 0, 0, 8); -fx-background-radius: 15; -fx-border-color: #bdc3c7; -fx-border-radius: 15;">
+                <children>
+                    <VBox alignment="CENTER" prefWidth="180.0" spacing="15.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 15 0 0 15;">
+                        <children>
+                            <ImageView fitHeight="140.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../images/maclovin.jpg"  />
+                                </image>
+                            </ImageView>
+                            <Label text="REPÚBLICA DEL ECUADOR" textAlignment="CENTER" wrapText="true" style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+                        </children>
+                    </VBox>
+
+                    <VBox prefWidth="320.0" spacing="10.0">
+                        <padding>
+                            <Insets bottom="20.0" left="25.0" right="20.0" top="20.0" />
+                        </padding>
+                        <children>
+                            <Label text="LICENCIA DE CONDUCIR" textFill="#2980b9" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+
+                            <GridPane vgap="12.0" hgap="10.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="180.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                <children>
+                                    <Label text="No. LICENCIA:" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d;" GridPane.rowIndex="0" />
+                                    <Label fx:id="lblNumeroLicencia" text="-" style="-fx-font-weight: bold; -fx-text-fill: #c0392b; -fx-font-size: 14px;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                    <Label text="NOMBRE:" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d;" GridPane.rowIndex="1" />
+                                    <Label fx:id="lblNombre" text="-" wrapText="true" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                    <Label text="TIPO DE LICENCIA:" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d;" GridPane.rowIndex="2" />
+                                    <Label fx:id="lblTipo" text="-" style="-fx-font-weight: bold; -fx-font-size: 20px; -fx-text-fill: #2c3e50;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                    <Label text="VÁLIDA HASTA:" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d;" GridPane.rowIndex="3" />
+                                    <Label fx:id="lblFechaVencimiento" text="-" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                </children>
+                            </GridPane>
+                        </children>
+                    </VBox>
+                </children>
+            </HBox>
+
+            <Label fx:id="lblPlaceholder" text="Ingrese una cédula para previsualizar" textFill="#95a5a6">
+                <font><Font name="System Italic" size="14.0" /></font>
+            </Label>
+        </children>
+    </StackPane>
+
+    <HBox alignment="CENTER" spacing="20.0">
+        <children>
+            <Button fx:id="btnImprimir" disable="true" onAction="#imprimirLicencia" prefHeight="45.0" prefWidth="220.0" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="🖨️ EMITIR E IMPRIMIR">
+                <font><Font size="14.0" /></font>
+                <cursor><Cursor fx:constant="HAND" /></cursor>
+            </Button>
+            <Button text="CERRAR VENTANA" onAction="#cerrarVentana" prefHeight="40.0" prefWidth="180.0"
+                    style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;"/>
+        </children>
+    </HBox>
+</VBox>
