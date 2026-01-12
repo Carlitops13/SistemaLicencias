@@ -10,7 +10,7 @@ Al iniciar la aplicación por primera vez, se encuentra creado un usuario admini
 
 - **Usuario:** `admin --> administrador / carlitos --> analista`
 - **Contraseña:** `admin --> administrador / 123456 --> analista`
-- **Link del Video** `https://youtu.be/-w8b-3mc96Q`
+- **Link del Video** https://youtu.be/-w8b-3mc96Q
 > Estas credenciales permiten acceder al sistema y realizar la configuración inicial.  
 > **Se recomienda cambiar la contraseña** después del primer inicio de sesión.
 
