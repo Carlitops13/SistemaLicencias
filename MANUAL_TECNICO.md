@@ -1254,8 +1254,8 @@ VALUES
 ```
 
 **Contraseñas de prueba (en texto plano):**
-- usuario: `admin` / contraseña: `admin123`
-- usuario: `analista` / contraseña: `analista123`
+- usuario: `admin` / contraseña: `admin`
+- usuario: `carlitos` / contraseña: `123456`
 
 ---
 
