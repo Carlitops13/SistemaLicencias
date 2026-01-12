@@ -365,8 +365,8 @@ public class Tramite {
     private boolean reqMultas;         // Sin multas
     
     // Campos de evaluación
-    private double notaTeorica;        // 0-100
-    private double notaPractica;       // 0-100
+    private double notaTeorica;        // 0-20
+    private double notaPractica;       // 0-20
 
     // Getters y setters
 }
@@ -379,11 +379,11 @@ PENDIENTE
 REQUISITOS (Verificación de requisitos)
     ↓
 EN_EXAMENES (Registro de exámenes)
-    ├─→ REPROBADO (Si nota < 60)
+    ├─→ REPROBADO (Si nota < 14)
     │   ↓ (reintentar)
     │   EN_EXAMENES
     │
-    └─→ APROBADO (Si ambas notas ≥ 60)
+    └─→ APROBADO (Si ambas notas ≥ 14)
         ↓
         LICENCIA_EMITIDA
         
@@ -1109,7 +1109,7 @@ SolicitanteDAOImpl.buscarPorCedula()
    ├─ Ingresar nota teórica
    ├─ Ingresar nota práctica
    └─ Click GUARDAR
-      ├─ ¿Ambas ≥ 60?
+      ├─ ¿Ambas ≥ 14?
       │  └─ SÍ → Estado = "APROBADO"
       │  └─ NO → Estado = "REPROBADO"
       └─ TramiteDAOImpl.actualizar()
@@ -1292,16 +1292,11 @@ util/
 ├── Validador.java          (Existente)
 ├── GeneradorClaves.java    (Existente)
 ├── VentanaUtil.java        (Existente)
-├── EmailUtil.java          ➕ NUEVO
-├── PDFUtil.java            ➕ NUEVO
-├── ReporteUtil.java        ➕ NUEVO
-└── AuditoriaUtil.java      ➕ NUEVO
+
 
 service/
 ├── LoginService.java       (Existente)
-├── TramiteService.java     ➕ NUEVO
-├── LicenciaService.java    ➕ NUEVO
-└── ReporteService.java     ➕ NUEVO
+
 ```
 
 ---
