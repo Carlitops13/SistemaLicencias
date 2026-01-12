@@ -783,5 +783,5 @@ Se actualiza al seleccionar un trámite.
 
 **Versión**: 1.0  
 **Última actualización**: Enero 2026  
-**Autor**: Equipo de Desarrollo
+**Autor**: Carlos Puente
 
