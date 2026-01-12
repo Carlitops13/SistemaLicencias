@@ -8,8 +8,8 @@ Aplicación de escritorio desarrollada en **JavaFX** para la gestión de trámit
 
 Al iniciar la aplicación por primera vez, se encuentra creado un usuario administrador por defecto:
 
-- **Usuario:** `admin`
-- **Contraseña:** `admin`
+- **Usuario:** `admin --> administrador / carlitos --> analista`
+- **Contraseña:** `admin --> administrador / 123456 --> analista`
 
 > Estas credenciales permiten acceder al sistema y realizar la configuración inicial.  
 > **Se recomienda cambiar la contraseña** después del primer inicio de sesión.
