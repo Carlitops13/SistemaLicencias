@@ -367,8 +367,8 @@ Solo usuarios con rol **ANALISTA** pueden acceder.
 - ✅ No puede tener notas duplicadas
 
 **Resultado:**
-- Si ambas notas ≥ 60 → **APROBADO**
-- Si alguna nota < 60 → **REPROBADO**
+- Si ambas notas ≥ 14 → **APROBADO**
+- Si alguna nota < 14 → **REPROBADO**
 
 **Notas Reprobadas:**
 - Se mostrarán con fondo **ROJO** en la tabla
